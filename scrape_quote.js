@@ -8,7 +8,7 @@ import { format } from '@fast-csv/format';  // Importing format from fast-csv fo
     
     const allQuotes = [];  // Array to store all scraped quotes
     let currentPage = 1;  // Starting page number
-    const maxPages = 5;  // Maximum number of pages to scrape
+    const maxPages = 10;  // Maximum number of pages to scrape
     
     try {
         while (currentPage <= maxPages) {
