@@ -10,6 +10,7 @@ import { format } from '@fast-csv/format';  // Importing format from fast-csv fo
     let currentPage = 1;  // Starting page number
     const maxPages = 10;  // Maximum number of pages to scrape
     
+
     try {
         while (currentPage <= maxPages) {
             const url = `https://quotes.toscrape.com/page/${currentPage}/`;  // Constructing the URL for the current page
@@ -18,11 +19,11 @@ import { format } from '@fast-csv/format';  // Importing format from fast-csv fo
                 timeout: 60000  // Set the timeout to 60 seconds
             });
 
-            // Evaluate function to scrape quotes from the page
+            // Evaluate function to scrape quotes  from the page
             const quotes = await page.evaluate(() => {
                 const quoteElements = Array.from(document.querySelectorAll(".col-md-8 .quote"));  // Select all quote elements
                 return quoteElements.map(quote => {
-                    const Quote = quote.querySelector(".text")?.textContent.trim();  // Extract quote text
+                    const Quote = quote.querySelector(".text")?.textContent.trim()?.replaceAll(`“`, ``)?.replaceAll(`”`, ``);  // Extract quote text
                     const Author = quote.querySelector(".author")?.textContent.trim();  // Extract author name
                     const tagElements = Array.from(quote.querySelectorAll(".tags a.tag"));  // Select all tag elements
                     const tags = tagElements.map(tag => tag.textContent.trim());  // Extract tag text
