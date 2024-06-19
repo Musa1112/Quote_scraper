@@ -119,3 +119,9 @@ In the while loop:
 })();
 
 ```
+
+# challenges
+1. I have observed that the exported data appears to contain non-alphabetical characters at the beginning and end of the text due to misinterpretation by Excel, resulting in unclean data.
+
+# solution
+After conducting a thorough search, I identified the specific non-alphabetical signs that were causing the issue. I took the necessary steps to replace these signs with an empty string, effectively resolving the problem.
